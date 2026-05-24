@@ -1,0 +1,136 @@
+/* 
+------------------------------
+CSS RESET
+------------------------------
+*/
+
+/* Box sizing */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Remove default margin */
+* {
+    margin: 0;
+}
+
+/* Improve body defaults */
+body {
+    min-height: 100vh;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    font-family: "Source Sans 3", sans-serif;
+}
+
+/* Media defaults */
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+/* Form typography */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/* Prevent text overflow */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+    margin: 0;
+}
+
+/* Remove list styles when needed */
+ul[role='list'],
+ol[role='list'] {
+    list-style: none;
+    padding: 0;
+}
+
+/* Anchor defaults */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+/* 
+------------------------------
+UTILITY CLASSES
+------------------------------
+*/
+.flex-vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.flex-horizontal {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-padding {
+    padding: 2rem 0;
+}
+
+.round-img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.bold-text{
+    font-weight: bold;
+}
+/* 
+------------------------------
+HEADER
+------------------------------
+*/
+header{
+    border-bottom: 1px solid #C6C6C6;
+}
+.header-container{
+    justify-content: space-between;
+}
+header img{
+    width: 150px;
+}
+
+
+
+/* 
+------------------------------
+POSTS
+------------------------------
+*/
+.post-header{
+    gap: 10px;
+}
+
+.post-reactions{
+    gap: 15px;
+}
+.post-reactions img{
+    width: 30px;
+}
