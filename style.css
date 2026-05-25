@@ -124,13 +124,26 @@ header img{
 POSTS
 ------------------------------
 */
+.post-container{
+    gap: 3rem;
+}
 .post-header{
     gap: 10px;
 }
 
 .post-reactions{
+    gap: 5px;
+}
+
+.reactions{
     gap: 15px;
 }
-.post-reactions img{
+.reactions img{
     width: 30px;
+    transition: filter 0.3s ease;
+}
+
+.reactions img:hover, .reactions img:focus{
+    filter: opacity(0.5);
+    cursor: pointer;
 }
