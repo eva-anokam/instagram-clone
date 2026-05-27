@@ -30,38 +30,33 @@ const posts = [
 
 const postContainer = document.querySelector(".post-container")
 
-posts.forEach(eachPost => { 
-    const post = document.createElement("div")
-    post.classList.add("post", "flex-vertical")
-    post.innerHTML =
+function addEventListeners(array) {
+    const postImgs = document.querySelectorAll(".post-img")
+
+    postImgs.forEach((img, index) => {
+        img.addEventListener("click", () => {
+            array[index] = { ...array[index], likes: array[index].likes + 1 }
+            renderPosts(array)
+        })
+    })
+}
+
+function createElement(array) {
+    array.forEach(eachPost => {
+        const post = document.createElement("div")
+        post.classList.add("post", "flex-vertical")
+        post.innerHTML = `
+        <div class="post-header flex-horizontal "> <div class="post-header__img "> <img src=${eachPost.avatar} alt="" class="round-img"> </div> <div class="post-header__info"> <p class="post-header__name bold-text">${eachPost.name}</p> <p class="post-header__location">${eachPost.location}}</p> </div> </div> <div class="post-image"> <img src=${eachPost.post} alt="" class="post-img"> </div> <div class="post-reactions flex-vertical"> <div class="flex-horizontal reactions"> <img src="images/icon-heart.png" alt=""> <img src="images/icon-comment.png" alt=""> <img src="images/icon-dm.png" alt=""> </div> <p class="bold-text">${eachPost.likes} likes</p> <div class="post-content"> <p><span class="bold-text">${eachPost.username}</span> ${eachPost.comment}</p> </div> </div>
     `
-        <div class="post-header flex-horizontal ">
-            <div class="post-header__img ">
-                <img src=${eachPost.avatar} alt="" class="round-img">
-            </div>
-            <div class="post-header__info">
-                <p class="post-header__name bold-text">${eachPost.name}</p>
-                <p class="post-header__location">${eachPost.location}}</p>
-            </div>
-        </div>
+        postContainer.appendChild(post)
+    });
+    addEventListeners(array)
+}
 
-            <div class="post-image">
-                <img src=${eachPost.post} alt="" class="post-img">
-            </div>
+function renderPosts(array) {
+    postContainer.innerHTML = ""
+    createElement(array)
 
-            <div class="post-reactions flex-vertical">
-                <div class="flex-horizontal reactions">
-                    <img src="images/icon-heart.png" alt="">
-                    <img src="images/icon-comment.png" alt="">
-                    <img src="images/icon-dm.png" alt="">
-                </div>
-                <p class="bold-text">${eachPost.likes} likes</p>
-                <div class="post-content">
-                    <p><span class="bold-text">${eachPost.username}</span> ${eachPost.comment}</p>
-                </div>
-            </div>
+}
 
-
-    `
-    postContainer.appendChild(post)
-})
+renderPosts(posts)
